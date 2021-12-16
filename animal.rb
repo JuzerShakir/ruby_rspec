@@ -25,6 +25,3 @@ class Dog < Animal
   end
 end
 
-dog = Dog.new
-
-#p dog.color
