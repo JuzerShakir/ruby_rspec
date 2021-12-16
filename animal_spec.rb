@@ -1,14 +1,19 @@
+# call rspec gem and the file to be tested
 require 'rspec'
 require_relative 'animal'
 
+# testing animla class
 RSpec.describe Animal do
-
+  # animal class instance method
   describe '#leg' do
+    # a test of leg method to check if it outputs '4'
     it 'returns number of legs' do
+      # 'subject' refers to the class 'Animal'
       expect(subject.legs).to eql(4)
     end
   end
 
+  # testing class Dog
   describe Dog do
     describe '#bark' do
       it "sounds like 'Woof!'" do
@@ -18,8 +23,10 @@ RSpec.describe Animal do
 
     describe '#hungry?' do
       context 'when hunger_level is greater than 5' do
+        # initializing Dog class with hunger_level to a var 'subject'
         subject { described_class.new(hunger_level: 6) }
         it 'returns true' do
+          # 'to' method is used to return truthy
           expect(subject).to be_hungry
         end
       end
@@ -27,6 +34,7 @@ RSpec.describe Animal do
       context 'when hunger_level is less than 5' do
         subject { described_class.new(hunger_level: 5) }
         it 'returns false' do
+          # 'to_not' method is used to return falsy
           expect(subject).to_not be_hungry
         end
       end
